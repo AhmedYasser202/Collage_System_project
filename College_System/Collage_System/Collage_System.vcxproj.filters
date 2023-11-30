@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Collage_System.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Collage_System_Program.cpp">
+    <ClCompile Include="models.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
