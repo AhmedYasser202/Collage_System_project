@@ -49,7 +49,7 @@ public:
 	}
 
 	// Getter
-	int setAge()
+	int getAge()
 	{
 		return age;
 	}
