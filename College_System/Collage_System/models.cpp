@@ -169,7 +169,3 @@ public:
 	}
 };
 
-
-
-int main()
-{
