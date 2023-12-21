@@ -21,13 +21,15 @@ public:
 		{
 			cout << "Invalid Name !\n";
 		}
-
-		if (std.getAge() >= 30 || std.getAge() <= 18)
+		else if (std.getAge() >= 30 || std.getAge() <= 18)
 		{
 			cout << "Invalid Age !\n";
 		}
-
-		if ((std.getPhoneNumber()[0] != '0' ||
+		else if (std.getGpa() >= 10 || std.getGpa() < 0)
+		{
+			cout << "Invalid GPA !\n";
+		}
+		else if ((std.getPhoneNumber()[0] != '0' ||
 			std.getPhoneNumber()[1] != '1' ||
 			(
 				std.getPhoneNumber()[2] != '1' &&
@@ -39,8 +41,11 @@ public:
 		{
 			cout << "Invalid Phone Number !\n";
 		}
-
-		return StudentRebository.addStudent(std);
+		else
+		{
+			return StudentRebository.addStudent(std);
+		}
+		return -1;
 	}
 };
 
@@ -62,7 +67,20 @@ private:
 public:
 	int addCourse(Course course)
 	{
-		return CourseRebository.addCourse(course);
+		if (course.getName().size() == 0 ||
+			course.getName().size() < 4)
+		{
+			cout << "Invalid Name\n";
+		}
+		else if (course.getHour() > 15 || course.getHour() < 5)
+		{
+			cout << "Invalid Course Hours !\n";
+		}
+		else
+		{
+			return CourseRebository.addCourse(course);
+		}
+		return -1;
 	}
 };
 
@@ -82,6 +100,36 @@ private:
 public:
 	int addTeacher(Teacher teacher)
 	{
-		return TeacherRebository.addTeacher(teacher);
+		if (teacher.getName().size() == 0 ||
+			teacher.getName().size() < 5 ||
+			teacher.getName().size() > 7)
+		{
+			cout << "Invalid Name !\n";
+		}
+		else if (teacher.getAge() > 60 || teacher.getAge() < 30)
+		{
+			cout << "Invalid Age !\n";
+		}
+		else if ((teacher.getPhoneNumber()[0] != '0' ||
+			teacher.getPhoneNumber()[1] != '1' ||
+			(
+				teacher.getPhoneNumber()[2] != '1' &&
+				teacher.getPhoneNumber()[2] != '2' &&
+				teacher.getPhoneNumber()[2] != '0' &&
+				teacher.getPhoneNumber()[2] != '5'
+				)
+			) || teacher.getPhoneNumber().size() != 11)
+		{
+			cout << "Invalid Phone Number !\n";
+		}
+		else if (teacher.getSalary() < 5000 || teacher.getSalary() > 15000)
+		{
+			cout << "Invalid Salary !\n";
+		}
+		else
+		{
+			return TeacherRebository.addTeacher(teacher);
+		}
+		return -1;
 	}
 };
