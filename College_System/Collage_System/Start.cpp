@@ -94,6 +94,82 @@ void AddTeacher()
 }
 
 
+void switchStudent()
+{
+	switch (process)
+	{
+	case 1:
+		AddStudent();
+		break;
+	case 2:
+		cout << "Remove student\n";
+		break;
+	case 3:
+		cout << "Edit Student\n";
+		break;
+	case 4:
+		cout << "show student\n";
+		break;
+	case 5:
+
+		break;
+	default:
+		cout << "Invalid Choise\n";
+		break;
+	}
+}
+
+void switchCourse()
+{
+	switch (process)
+	{
+	case 1:
+		AddCourse();
+		break;
+	case 2:
+		cout << "Remove Course\n";
+		break;
+	case 3:
+		cout << "Edit Course\n";
+		break;
+	case 4:
+		cout << "show Course\n";
+		break;
+	case 5:
+
+		break;
+	default:
+		cout << "Invalid Choise\n";
+		break;
+	}
+}
+
+void switchTeacher()
+{
+	switch (process)
+	{
+	case 1:
+		AddTeacher();
+		break;
+	case 2:
+		cout << "Remove Teacher\n";
+		break;
+	case 3:
+		cout << "Edit Teacher\n";
+		break;
+	case 4:
+		cout << "show Teacher\n";
+		break;
+	case 5:
+
+		break;
+	default:
+		cout << "Invalid Choise\n";
+		break;
+	}
+}
+
+
 int main()
 {
 	bool flag = 0;
@@ -108,77 +184,17 @@ int main()
 		case 1:
 			showList("student");
 			cin >> process;
-			switch (process)
-			{
-			case 1:
-				AddStudent();
-				break;
-			case 2:
-				cout << "Remove student\n";
-				break;
-			case 3:
-				cout << "Edit Student\n";
-				break;
-			case 4:
-				cout << "show student\n";
-				break;
-			case 5:
-				
-				break;
-			default:
-				cout << "Invalid Choise\n";
-				break;
-			}
+			switchStudent();
 			break;
 		case 2:
 			showList("course");
 			cin >> process;
-			switch (process)
-			{
-			case 1:
-				AddCourse();
-				break;
-			case 2:
-				cout << "Remove Course\n";
-				break;
-			case 3:
-				cout << "Edit Course\n";
-				break;
-			case 4:
-				cout << "show Course\n";
-				break;
-			case 5:
-
-				break;
-			default:
-				cout << "Invalid Choise\n";
-				break;
-			}
+			switchCourse();
 			break;
 		case 3:
 			showList("teacher");
 			cin >> process;
-			switch (process)
-			{
-			case 1:
-				AddTeacher();
-				break;
-			case 2:
-				cout << "Remove Teacher\n";
-				break;
-			case 3:
-				cout << "Edit Teacher\n";
-				break;
-			case 4:
-				cout << "show Teacher\n";
-				break;
-			case 5:
-
-				break;
-			default:
-				cout << "Invalid Choise\n";
-				break;
-			}
+			switchTeacher();
 			break;
 		case 4: 
 			flag = 1;

@@ -84,7 +84,7 @@ public:
 	{
 		if (data.indexTeacher == 25)
 		{
-			cout << "full teacher\n";
+			return -1;
 		}
 		else
 		{

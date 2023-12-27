@@ -1,5 +1,5 @@
-#include "Rebo.cpp"
-
+#include "Rebo.cpp"            /******** Validation Classes ********/
+// studentValidation Class
 class studentValidation
 {
 public:
@@ -38,6 +38,7 @@ public:
 		return -1;
 	}
 };
+// CourseValidation Class
 
 class CourseValidation
 {
@@ -60,7 +61,7 @@ public:
 		return -1;
 	}
 };
-
+// TeacherValidation Class
 class TeacherValidation
 {
 public:
@@ -97,5 +98,14 @@ public:
 			return 1;
 		}
 		return -1;
+	}
+};
+
+class ValidationService
+{
+public:
+	void fullData(string type)
+	{
+		cout << "Full " << type << " !\n";
 	}
 };

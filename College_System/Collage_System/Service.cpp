@@ -13,12 +13,21 @@ class StudentServiceImpl
 private:
 	studentRebositoryImpl StudentRebository;
 	studentValidation studentValidation;
+	ValidationService validationService;
 public:
 	int addStudent(student std)
 	{
 		if (studentValidation.validteStudent(std) == 1)
 		{
-			return StudentRebository.addStudent(std);
+			int id = StudentRebository.addStudent(std);
+			if (id == -1)
+			{
+				validationService.fullData("student");
+			}
+			else
+			{
+				return id;
+			}
 		}
 		return -1;
 	}
