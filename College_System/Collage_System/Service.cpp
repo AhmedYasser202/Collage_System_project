@@ -49,12 +49,21 @@ class CourseServiceImpl
 private:
 	CourseRebositoryImpl CourseRebository;
 	CourseValidation courseValidation;
+	ValidationService validationService;
 public:
 	int addCourse(Course course)
 	{
 		if (courseValidation.validateCourse(course) == 1)
 		{
-			return CourseRebository.addCourse(course);
+			int id = CourseRebository.addCourse(course);
+			if (id == -1)
+			{
+				validationService.fullData("course");
+			}
+			else
+			{
+				return id;
+			}
 		}
 		return -1;
 	}
@@ -74,12 +83,21 @@ class TeacherServiceImpl
 private:
 	TeacherRebositoryImpl TeacherRebository;
 	TeacherValidation teacherValidation;
+	ValidationService validationService;
 public:
 	int addTeacher(Teacher teacher)
 	{
 		if (teacherValidation.validateTeacher(teacher) == 1)
 		{
-			return TeacherRebository.addTeacher(teacher);
+			int id = TeacherRebository.addTeacher(teacher);
+			if (id == -1)
+			{
+				validationService.fullData("Teacher");
+			}
+			else
+			{
+				return id;
+			}
 		}
 		return -1;
 	}

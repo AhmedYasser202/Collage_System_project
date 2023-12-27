@@ -13,9 +13,9 @@ void ShowSystem()
 void showList(string str)
 {
 	cout << "\t\t************* " << str << " Management *************\n";
-	cout << "1- add " << str << "\t\t2- Remove" << str << "\n";
+	cout << "1- add " << str << "\t\t2- Remove " << str << "\n";
 	cout << "3- edit " << str << "\t\t4- show " << str << "\n";
-	cout << "5- Exit\n";
+	cout << "5- Show "<<str<<" By ID \t\t"<< "6- Exit\n";
 }
 
 void AddStudent()
@@ -111,6 +111,9 @@ void switchStudent()
 		cout << "show student\n";
 		break;
 	case 5:
+		cout << "show student by ID\n";
+		break;
+	case 6:
 
 		break;
 	default:
@@ -136,6 +139,9 @@ void switchCourse()
 		cout << "show Course\n";
 		break;
 	case 5:
+		cout << "show Course by ID\n";
+		break;
+	case 6:
 
 		break;
 	default:
@@ -161,6 +167,9 @@ void switchTeacher()
 		cout << "show Teacher\n";
 		break;
 	case 5:
+		cout << "show Teacher by ID\n";
+		break;
+	case 6:
 
 		break;
 	default:

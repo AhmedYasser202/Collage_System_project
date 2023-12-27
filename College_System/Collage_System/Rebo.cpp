@@ -52,7 +52,7 @@ public:
 	{
 		if (data.indexStudent == 25)
 		{
-			cout << "full student\n";
+			return -1;
 
 		}
 		else
@@ -116,7 +116,7 @@ public:
 	{
 		if (data.indexCourse == 25)
 		{
-			cout << "full course\n";
+			return -1;
 		}
 		else
 		{
