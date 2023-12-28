@@ -40,27 +40,43 @@ class studentRebository
 {
 public:
 	virtual int addStudent(student std) = 0;
+	virtual student getStudentByID(int id) = 0;
 };
 
 // student impl
 class studentRebositoryImpl : public studentRebository
 {
 private:
-	Data data;
+	
+	student Invalidstd;
 public:
 	int addStudent(student std)
 	{
-		if (data.indexStudent == 25)
+		if (Data::indexStudent == 25)
 		{
 			return -1;
 
 		}
 		else
 		{
-			std.setId(data.idStudent++);
-			data.students[data.indexStudent++] = std;
+			std.setId(Data::idStudent++);
+			Data::students[Data::indexStudent++] = std;
 		}
 		return std.getId();
+	}
+	student getStudentByID(int id)
+	{
+		// return data.students[id-1];
+		for (int i = 0; i < Data::indexStudent; i++)
+		{
+			if (Data::students[i].getId() == id)
+			{
+				return Data::students[i];
+			}
+		}
+
+		Invalidstd.setId(-1);
+		return Invalidstd;
 	}
 
 };
@@ -72,26 +88,42 @@ class teacherRebository
 {
 public:
 	virtual int addTeacher(Teacher teacher) = 0;
+	virtual Teacher getTeacherByID(int id) = 0;
+
 };
 
 // student impl
 class TeacherRebositoryImpl : public teacherRebository
 {
 private:
-	Data data;
+	Teacher InvalidTeacher;
 public:
 	int addTeacher(Teacher teacher)
 	{
-		if (data.indexTeacher == 25)
+		if (Data::indexTeacher == 25)
 		{
 			return -1;
 		}
 		else
 		{
-			teacher.setId(data.idTeacher++);
-			data.Teachers[data.indexTeacher++] = teacher;
+			teacher.setId(Data::idTeacher++);
+			Data::Teachers[Data::indexTeacher++] = teacher;
 		}
 		return teacher.getId();
+	}
+
+	Teacher getTeacherByID(int id)
+	{
+		for (int i = 0; i < Data::indexTeacher; i++)
+		{
+			if (Data::Teachers[i].getId() == id)
+			{
+				return Data::Teachers[i];
+			}
+		}
+
+		InvalidTeacher.setId(-1);
+		return InvalidTeacher;
 	}
 };
 
@@ -104,26 +136,41 @@ class courseRebository
 {
 public:
 	virtual int addCourse(Course course) = 0;
+	virtual Course getCourseByID(int id) = 0;
 };
 
 // student impl
 class CourseRebositoryImpl : public courseRebository
 {
 private:
-	Data data;
+	Course InvalidCourse;
 public:
 	int addCourse(Course course)
 	{
-		if (data.indexCourse == 25)
+		if (Data::indexCourse == 25)
 		{
 			return -1;
 		}
 		else
 		{
-			course.setId(data.idCourse++);
-			data.Courses[data.indexCourse++] = course;
+			course.setId(Data::idCourse++);
+			Data::Courses[Data::indexCourse++] = course;
 		}
 		return course.getId();
+	}
+
+	Course getCourseByID(int id)
+	{
+		for (int i = 0; i < Data::indexCourse; i++)
+		{
+			if (Data::students[i].getId() == id)
+			{
+				return Data::Courses[i];
+			}
+		}
+
+		InvalidCourse.setId(-1);
+		return InvalidCourse;
 	}
 };
 
