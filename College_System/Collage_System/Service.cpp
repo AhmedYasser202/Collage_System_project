@@ -5,6 +5,8 @@ class StudentService
 {
 public:
 	virtual int addStudent(student std) = 0;
+	virtual student getStudentByID(int id) = 0;
+
 	
 };
 ////// Student service Impl
@@ -14,6 +16,7 @@ private:
 	studentRebositoryImpl StudentRebository;
 	studentValidation studentValidation;
 	ValidationService validationService;
+	student studentResult;
 public:
 	int addStudent(student std)
 	{
@@ -31,6 +34,16 @@ public:
 		}
 		return -1;
 	}
+
+	student getStudentByID(int id)
+	{
+		studentResult = StudentRebository.getStudentByID(id);
+		if (studentResult.getId() == -1)
+		{
+			cout << "Student with id [" << id << "] Not Exist\n";
+		}
+		return studentResult;
+	}
 };
 
 
@@ -41,6 +54,7 @@ class CourseService
 {
 public:
 	virtual int addCourse(Course course) = 0;
+	virtual Course getCourseByID(int id) = 0;
 
 };
 // Course Service Impl
@@ -50,6 +64,7 @@ private:
 	CourseRebositoryImpl CourseRebository;
 	CourseValidation courseValidation;
 	ValidationService validationService;
+	Course CourseResult;
 public:
 	int addCourse(Course course)
 	{
@@ -67,6 +82,16 @@ public:
 		}
 		return -1;
 	}
+
+	Course getCourseByID(int id)
+	{
+		CourseResult = CourseRebository.getCourseByID(id);
+		if (CourseResult.getId() == -1)
+		{
+			cout << "Course with id [" << id << "] Not Exist\n";
+		}
+		return CourseResult;
+	}
 };
 
 ////////////////// Teacher ////////////////
@@ -75,6 +100,7 @@ class TeacherService
 {
 public:
 	virtual int addTeacher(Teacher teacher) = 0;
+	virtual Teacher getTeacherByID(int id) = 0;
 
 };
 ///// Teacher servise Impl
@@ -84,6 +110,7 @@ private:
 	TeacherRebositoryImpl TeacherRebository;
 	TeacherValidation teacherValidation;
 	ValidationService validationService;
+	Teacher TeacherResult;
 public:
 	int addTeacher(Teacher teacher)
 	{
@@ -100,5 +127,16 @@ public:
 			}
 		}
 		return -1;
+	}
+
+	Teacher getTeacherByID(int id)
+	{
+		TeacherResult = TeacherRebository.getTeacherByID(id);
+		if (TeacherResult.getId() == -1)
+		{
+			cout << "Course with id [" << id << "] Not Exist\n";
+		}
+		return TeacherResult;
+	
 	}
 };
