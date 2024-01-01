@@ -163,7 +163,7 @@ public:
 	{
 		for (int i = 0; i < Data::indexCourse; i++)
 		{
-			if (Data::students[i].getId() == id)
+			if (Data::Courses[i].getId() == id)
 			{
 				return Data::Courses[i];
 			}
