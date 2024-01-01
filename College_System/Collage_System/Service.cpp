@@ -40,7 +40,7 @@ public:
 		studentResult = StudentRebository.getStudentByID(id);
 		if (studentResult.getId() == -1)
 		{
-			cout << "Student with id [" << id << "] Not Exist\n";
+			validationService.notExist("student",id);
 		}
 		return studentResult;
 	}
@@ -88,7 +88,7 @@ public:
 		CourseResult = CourseRebository.getCourseByID(id);
 		if (CourseResult.getId() == -1)
 		{
-			cout << "Course with id [" << id << "] Not Exist\n";
+			validationService.notExist("course", id);
 		}
 		return CourseResult;
 	}
@@ -134,7 +134,7 @@ public:
 		TeacherResult = TeacherRebository.getTeacherByID(id);
 		if (TeacherResult.getId() == -1)
 		{
-			cout << "Course with id [" << id << "] Not Exist\n";
+			validationService.notExist("teacher", id);
 		}
 		return TeacherResult;
 	
