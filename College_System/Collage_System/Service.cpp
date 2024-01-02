@@ -6,6 +6,7 @@ class StudentService
 public:
 	virtual int addStudent(student std) = 0;
 	virtual student getStudentByID(int id) = 0;
+	virtual int editStudent(student std) = 0;
 
 	
 };
@@ -44,6 +45,19 @@ public:
 		}
 		return studentResult;
 	}
+
+	int editStudent(student std)
+	{
+		int index = StudentRebository.editStudent(std);
+		if (index == -1)
+		{
+			validationService.notExist("student", std.getId());
+		}
+		else
+		{
+			cout << "Success Edit Student with ID [" << std.getId() << "]\n";
+		}
+	}
 };
 
 
@@ -55,7 +69,7 @@ class CourseService
 public:
 	virtual int addCourse(Course course) = 0;
 	virtual Course getCourseByID(int id) = 0;
-
+	virtual int editCourse(Course course) = 0;
 };
 // Course Service Impl
 class CourseServiceImpl
@@ -92,6 +106,19 @@ public:
 		}
 		return CourseResult;
 	}
+
+	int editCourse(Course course)
+	{
+		int index = CourseRebository.editCourse(course);
+		if (index == -1)
+		{
+			validationService.notExist("Course", course.getId());
+		}
+		else
+		{
+			cout << "Success Edit Course with ID [" << course.getId() << "]\n";
+		}
+	}
 };
 
 ////////////////// Teacher ////////////////
@@ -101,6 +128,8 @@ class TeacherService
 public:
 	virtual int addTeacher(Teacher teacher) = 0;
 	virtual Teacher getTeacherByID(int id) = 0;
+	virtual int editTeacher(Teacher teacher) = 0;
+
 
 };
 ///// Teacher servise Impl
@@ -138,5 +167,18 @@ public:
 		}
 		return TeacherResult;
 	
+	}
+
+	int editTeacher(Teacher teacher)
+	{
+		int index = TeacherRebository.editTeacher(teacher);
+		if (index == -1)
+		{
+			validationService.notExist("Teacher", teacher.getId());
+		}
+		else
+		{
+			cout << "Success Edit Teacher with ID [" << teacher.getId() << "]\n";
+		}
 	}
 };
