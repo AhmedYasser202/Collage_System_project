@@ -23,6 +23,10 @@ public:
 				<< "\t\t" << studentResult.getGpa() << "\n";
 		}
 	}
+	void updateStudent(student std)
+	{
+		studentService.editStudent(std);
+	}
 };
 
 /////////// Course ////////////
@@ -49,6 +53,10 @@ public:
 			cout << "\t\t" << courseResult.getId() << "\t\t" << courseResult.getName()
 				<< "\t\t" <<courseResult.getHour() <<"\n";
 		}
+	}
+	void updateCourse(Course course)
+	{
+		courseService.editCourse(course);
 	}
 };
 
@@ -77,6 +85,11 @@ public:
 				<< "\t\t" << teacherResult.getAge() << "\t\t" << teacherResult.getPhoneNumber()
 				<< "\t\t" << teacherResult.getSalary() << "\n";
 		}
+	}
+
+	void updateTeacher(Teacher teacher)
+	{
+		teacherService.editTeacher(teacher);
 	}
 };
 
