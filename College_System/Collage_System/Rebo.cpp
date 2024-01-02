@@ -1,5 +1,6 @@
 #include "models.cpp"
 
+
 // static data
 class Data
 {
@@ -41,6 +42,7 @@ class studentRebository
 public:
 	virtual int addStudent(student std) = 0;
 	virtual student getStudentByID(int id) = 0;
+	virtual int editStudent(student std) = 0;
 };
 
 // student impl
@@ -49,6 +51,8 @@ class studentRebositoryImpl : public studentRebository
 private:
 	
 	student Invalidstd;
+	int index = -1;
+
 public:
 	int addStudent(student std)
 	{
@@ -79,6 +83,27 @@ public:
 		return Invalidstd;
 	}
 
+	int editStudent(student std)
+	{
+		for (int i = 0; i < Data::indexStudent; i++)
+		{
+			if (Data::students[i].getId() == std.getId())
+			{
+				index = i;
+				break;
+			}
+		}
+		if (index == -1)
+		{
+			return -1;
+		}
+		else
+		{
+			Data::students[index] = std;
+			return index;
+		}
+	}
+
 };
 
 
@@ -89,6 +114,7 @@ class teacherRebository
 public:
 	virtual int addTeacher(Teacher teacher) = 0;
 	virtual Teacher getTeacherByID(int id) = 0;
+	virtual int editTeacher(Teacher teacher) = 0;
 
 };
 
@@ -97,6 +123,8 @@ class TeacherRebositoryImpl : public teacherRebository
 {
 private:
 	Teacher InvalidTeacher;
+	int index = -1;
+
 public:
 	int addTeacher(Teacher teacher)
 	{
@@ -125,6 +153,27 @@ public:
 		InvalidTeacher.setId(-1);
 		return InvalidTeacher;
 	}
+
+	int editTeacher(Teacher teacher)
+	{
+		for (int i = 0; i < Data::indexTeacher; i++)
+		{
+			if (Data::Teachers[i].getId() == teacher.getId())
+			{
+				index = i;
+				break;
+			}
+		}
+		if (index == -1)
+		{
+			return -1;
+		}
+		else
+		{
+			Data::Teachers[index] = teacher;
+			return index;
+		}
+	}
 };
 
 
@@ -137,6 +186,7 @@ class courseRebository
 public:
 	virtual int addCourse(Course course) = 0;
 	virtual Course getCourseByID(int id) = 0;
+	virtual int editCourse(Course course) = 0;
 };
 
 // student impl
@@ -144,6 +194,7 @@ class CourseRebositoryImpl : public courseRebository
 {
 private:
 	Course InvalidCourse;
+	int index = -1;
 public:
 	int addCourse(Course course)
 	{
@@ -171,6 +222,27 @@ public:
 
 		InvalidCourse.setId(-1);
 		return InvalidCourse;
+	}
+
+	int editCourse(Course course)
+	{
+		for (int i = 0; i < Data::indexCourse; i++)
+		{
+			if (Data::Courses[i].getId() == course.getId())
+			{
+				index = i;
+				break;
+			}
+		}
+		if (index == -1)
+		{
+			return -1;
+		}
+		else
+		{
+			Data::Courses[index] = course;
+			return index;
+		}
 	}
 };
 

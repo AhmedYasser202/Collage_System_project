@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="models.cpp" />
+    <ClCompile Include="Rebo.cpp" />
+    <ClCompile Include="Service.cpp" />
     <ClCompile Include="Start.cpp" />
     <ClCompile Include="Validation.cpp" />
   </ItemGroup>
